@@ -30,9 +30,22 @@ So I decided to create a virtual instrument - an instrument that can be played a
 
 ## Data Pipeline
 ### Collection
-
+Data collection takes place in `data_collection.py`. This script utilized two classes: HandTracker and HandData
+- HandTracker
+  - This class provided the necessary methods to process an image input, collect the hand landmark coordinates, and draw the landmarks on the image
+- HandData
+  - This class provided the necessary tools to collect and save the coordinates. Utilities included during a capture session include setting the gesture label for a session, adding/deleting coordinates, and saving the data to a unique file name
+- How to use `data_collection.py`
+  1) Before running the script, ensure you have set the proper "GESTURE_LABEL" and "FILE_PATH"
+  2) OpenCV will launch on start and will open up another tab with the live video feed
+  3) Hit Enter to save a coordinate for the right hand
+     - Hand must be fully in the screen to register
+     - The left hand cannot be captured
+     - Two hands cannot be captured
+  4) Hit Backspace to delete the last captured coordinate
+  5) Hit ESC to exit the program.
 ### Processing
-
+  
 ### Feature Engineering
 
 
