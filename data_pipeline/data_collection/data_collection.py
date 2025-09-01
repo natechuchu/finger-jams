@@ -10,6 +10,7 @@ def print_menu():
 
     print("Save coordinates    - Enter")
     print("Delete last coords  - Backspace")
+    print("Exit                - ESC")
 
 def main():
     # Declarations
