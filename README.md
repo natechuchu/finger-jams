@@ -44,8 +44,11 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
      - Two hands cannot be captured
   4) Hit Backspace to delete the last captured coordinate
   5) Hit ESC to exit the program.
-### Processing
   
+### Processing
+Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step.
+1) Raw data
+Lets take a look at one sample
 ### Feature Engineering
 
 
