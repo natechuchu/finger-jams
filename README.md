@@ -8,7 +8,10 @@ This project utilizes a neural network classifier to classify 7 hand gestures fr
 - [Overview](#overview)
 - [Background](#background)
 - [Features](#features)
+- [Data Pipeline](#data-pipeline)
+- [Model Architecture](#model-architecture)
 - [Example Usage](#example-usage)
+- [What I Learned](#what-i-learned)
 - [Future Work](#future-work)
 
 
@@ -29,6 +32,8 @@ Ever since I started playing violin at 5 years old, I've always loved creating a
 music is where we can explore how deep our creativity can go. I believe that everyone should have access to create music, but often it can be inconvenient and pricey to own an instrument. 
 So I decided to create a virtual instrument - an instrument that can be played anywhere, anytime, completely hassle-free! All it requires is a free set of hands and your imagination. 
 
+---
+
 ## ✨ Features
 - MediaPipe for hand recognition
 - OpenCV for live input at 60 fps
@@ -38,6 +43,7 @@ So I decided to create a virtual instrument - an instrument that can be played a
 - Deep Neural Network trained on 65 features (21 hand landmarks * 3D coordinates + 2 angle features) to classify 7 gestures
 - Refined model through dropout, early stopping, mini-batch gradient descent
 
+---
 
 ## Data Pipeline
 ### Collection
@@ -55,7 +61,9 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
      - Two hands cannot be captured
   4) Hit Backspace to delete the last captured coordinate
   5) Hit ESC to exit the program.
-  
+
+---
+
 ### Processing
 Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step. Essentially, to train and also predict with the model, we need a way to process the data so that it always comes back consistently, regardless of which hand it is, what position it is in the screen, how big the hand is, or how rotated it is. We want to recognize the hand gesture solely and ignore all other factors. 
 
@@ -84,12 +92,15 @@ Finally, the hand can freely rotate around the y-axis. Let's set the thumb to be
 
 ![normalize rotation](images/norm_psar.png)
 
+---
+
 ### Feature Engineering  
 My model had an extremely hard time distinguishing between similar gestures. For example, position 6 (closed fist with thumb extended) and position 7 (a completely closed fist), or holding up 4 fingers vs 5. So I computed the angle between two vectors: the thumb vector and the vector from the wrist to the base of the middle finger. Using the sine and cosine of the angle as two additional features, my model was able to distinguish these gestures much better.
 
+---
 
 ## Model Architecture
-##  Architecture
+###  Architecture
 - **Input Layer**: 65 features (from `X`)
 - **Hidden Layer 1**:  
   - Dense (64 units) with **ReLU activation**  
@@ -100,28 +111,26 @@ My model had an extremely hard time distinguishing between similar gestures. For
 - **Output Layer**:  
   - Dense (8 units) with **Softmax activation** for probability distribution across 8 classes  
 
----
-
-## Compilation
+### Compilation
 - **Optimizer**: Adam (adaptive learning rate)  
 - **Loss Function**: Sparse Categorical Crossentropy (for integer-encoded labels)  
 - **Metrics**: Accuracy  
 
----
-
-## Training
+### Training
 - **Train/Test Split**: 80/20 using `train_test_split` (random state = 42 for reproducibility)  
 - **Batch Size**: 40  
 - **Epochs**: Up to 100  
 - **Early Stopping**: Stops training if validation loss doesn’t improve for 5 epochs 
 
----
-
-## Evaluation
+### Evaluation
 - **Cross-Entropy Loss Curve**: Plots training and validation loss across epochs  
 - **Accuracy Curve**: Plots training and validation accuracy across epochs  
 
+---
+
 ## 🧪 Example Usage
+
+---
 
 ## What I learned
 This was a really fun project that combined my love for math, coding, AI, and music! Here are some of the skills I learned and applied:
@@ -131,13 +140,16 @@ This was a really fun project that combined my love for math, coding, AI, and mu
 - Having over 12 years of experience playing music, I had to create an instrumental scheme that would make it easy to switch between notes.
 - Because this project involved audio and live input, this was very interactive and extremely fun to create!
 
+---
+
 ## Future Work
 Improvements:
 - Speed of camera startup
 - More data collected
 - More accurate model
 - Increased processing time of input to output
-Different features to include:
+
+Different features to include:  
 - Different majors
 - Different sound outputs
 - Songs to play along
