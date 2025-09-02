@@ -1,6 +1,6 @@
 # Virtual Instrument using MediaPipe and NN-Classifier
 
-This project utilizes a neural network classifier to classify 7 hand gestures from MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
+This project utilizes a neural network classifier to classify 7 hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
 
 ---
 
@@ -57,26 +57,30 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
   5) Hit ESC to exit the program.
   
 ### Processing
-Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step.
+Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step. Essentially, to train and also predict with the model, we need a way to process the data so that it always comes back consistently, regardless of which hand it is, what position it is in the screen, how big the hand is, or how rotated it is. We want to recognize the hand gesture solely and ignore all other factors. 
 
 **1) Raw data**  
-Here is what a single sample looks like.
+Here is what a single sample looks like, consisting of 21 hand landmarks, each with 3D coordinates.
 
 ![raw data](images/raw_data.png)
 
-**2) Normalizing the origin**
+**2) Normalizing the position**  
+The origin by default starts at the top left of an image. So our first step of normalization is to set the origin to the wrist, which is landmark 0.  
 
 ![normalize position](images/norm_p.png)
 
-**3) Normalizing the scale**
+**3) Normalizing the scale**  
+We need to remove any dependencies on the size of the hand. We set the distance between landmark 0 and 9 to be fixed at a length of 1  
 
 ![normalize scale](images/norm_ps.png)
 
-**4) Normalizing the alignment**
+**4) Normalizing the alignment**  
+The hand so far can be rotated freely in the 3D coordinate space. Let's align it with the positive y-axis:  
 
 ![normalize alignement](images/norm_psa.png)
 
-**5) Normalizing the rotation**
+**5) Normalizing the rotation**  
+Finally, the hand can freely rotate around the y-axis. Let's set the thumb to be aligned with the X-Y plane.  
 
 ![normalize rotation](images/norm_psar.png)
 
