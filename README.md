@@ -5,12 +5,12 @@ This project utilizes a neural network classifier to classify 7 hand gestures fr
 ---
 
 ## 📌 Table of Contents
-- [Overview](#overview)
+- [Overview](#-overview)
 - [Background](#background)
-- [Features](#features)
+- [Features](#-features)
 - [Data Pipeline](#data-pipeline)
 - [Model Architecture](#model-architecture)
-- [Example Usage](#example-usage)
+- [Example Usage](#-example-usage)
 - [What I Learned](#what-i-learned)
 - [Future Work](#future-work)
 
