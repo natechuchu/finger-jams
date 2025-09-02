@@ -1,6 +1,6 @@
-# Virtual Instrument using Mediapipe and NN-Classifier
+# Virtual Instrument using MediaPipe and NN-Classifier
 
-This project utilizes a neural network classifier to classify 7 hand gestures from Mediapipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
+This project utilizes a neural network classifier to classify 7 hand gestures from MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
 
 ---
 
@@ -15,9 +15,12 @@ This project utilizes a neural network classifier to classify 7 hand gestures fr
 ---
 
 ## 🧠 Overview
-Using Mediapipe as a hand recognizer and OpenCV for camera input, I manually collected over 10,000 hand gesture samples using my HandData class. From there, I built a custom pipeline to preprocess the data,
-engineered additional features to distinguish similar gestures, and trained a neural network classifier. Using the left hand to control the octaves, and the right hand to control the 7 notes in a C Major scale, I connected my preprocessing pipeline
+Using MediaPipe, a prebuilt hand-recognizer, and OpenCV for camera input, I manually collected over 10,000 hand gesture samples using my HandData class.
+From there, I built a custom pipeline to preprocess the data, engineered additional features to distinguish similar gestures, and trained a neural network classifier. Using the left hand to control the octaves and the right hand to control the 7 notes in a C Major scale, I connected my preprocessing pipeline
 to a live input and mapped the processed data to audio outputs. In the end, I created a novel design for next-generation music creation!
+
+MediaPipe hand landmarks:
+![raw data](images/hand_landmarks.png)
 
 ---
 
@@ -27,6 +30,14 @@ music is where we can explore how deep our creativity can go. I believe that eve
 So I decided to create a virtual instrument - an instrument that can be played anywhere, anytime, completely hassle-free! All it requires is a free set of hands and your imagination. 
 
 ## ✨ Features
+- MediaPipe for hand recognition
+- OpenCV for live input at 60 fps
+- HandData class used to collect, delete, and store saved landmarks
+- Custom Data pipeline to normalize position, scale, alignment, rotation, and handness
+- Feature engineering for angles between fingers
+- Deep Neural Network trained on 65 features to classify 7 gestures
+- Refined model through dropout, early stopping, mini-batch gradient descent
+
 
 ## Data Pipeline
 ### Collection
@@ -47,23 +58,25 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
   
 ### Processing
 Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step.
-1) Raw data
+
+**1) Raw data**  
+Here is what a single sample looks like.
 
 ![raw data](images/raw_data.png)
 
-3) Normalizing the origin 
+**2) Normalizing the origin**
 
 ![normalize position](images/norm_p.png)
 
-4) Normalizing the scale
+**3) Normalizing the scale**
 
 ![normalize scale](images/norm_ps.png)
 
-5) Normalizing the alignment
+**4) Normalizing the alignment**
 
 ![normalize alignement](images/norm_psa.png)
 
-3) Normalizing the rotation
+**5) Normalizing the rotation**
 
 ![normalize rotation](images/norm_psar.png)
 
