@@ -35,7 +35,7 @@ So I decided to create a virtual instrument - an instrument that can be played a
 - HandData class used to collect, delete, and store saved landmarks
 - Custom Data pipeline to normalize position, scale, alignment, rotation, and handness
 - Feature engineering for angles between fingers
-- Deep Neural Network trained on 65 features to classify 7 gestures
+- Deep Neural Network trained on 65 features (21 hand landmarks * 3D coordinates + 2 angle features) to classify 7 gestures
 - Refined model through dropout, early stopping, mini-batch gradient descent
 
 
@@ -84,9 +84,8 @@ Finally, the hand can freely rotate around the y-axis. Let's set the thumb to be
 
 ![normalize rotation](images/norm_psar.png)
 
-### Feature Engineering
-
-## Modeling
+### Feature Engineering  
+My model had an extremely hard time distinguishing between similar gestures. For example, position 6 (closed fist with thumb extended) and position 7 (a completely closed fist), or holding up 4 fingers vs 5. So I computed the angle between two vectors: the thumb vector and the vector from the wrist to the base of the middle finger. Using the sine and cosine of the angle as two additional features, my model was able to distinguish these gestures much better.
 
 ## 🧪 Example Usage
 
