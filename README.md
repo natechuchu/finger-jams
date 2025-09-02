@@ -87,6 +87,59 @@ Finally, the hand can freely rotate around the y-axis. Let's set the thumb to be
 ### Feature Engineering  
 My model had an extremely hard time distinguishing between similar gestures. For example, position 6 (closed fist with thumb extended) and position 7 (a completely closed fist), or holding up 4 fingers vs 5. So I computed the angle between two vectors: the thumb vector and the vector from the wrist to the base of the middle finger. Using the sine and cosine of the angle as two additional features, my model was able to distinguish these gestures much better.
 
+
+## Model Architecture
+##  Architecture
+- **Input Layer**: 65 features (from `X`)
+- **Hidden Layer 1**:  
+  - Dense (64 units) with **ReLU activation**  
+  - Dropout (30%) to reduce overfitting  
+- **Hidden Layer 2**:  
+  - Dense (32 units) with **ReLU activation**  
+  - Dropout (30%)  
+- **Output Layer**:  
+  - Dense (8 units) with **Softmax activation** for probability distribution across 8 classes  
+
+---
+
+## Compilation
+- **Optimizer**: Adam (adaptive learning rate)  
+- **Loss Function**: Sparse Categorical Crossentropy (for integer-encoded labels)  
+- **Metrics**: Accuracy  
+
+---
+
+## Training
+- **Train/Test Split**: 80/20 using `train_test_split` (random state = 42 for reproducibility)  
+- **Batch Size**: 40  
+- **Epochs**: Up to 100  
+- **Early Stopping**: Stops training if validation loss doesn’t improve for 5 epochs 
+
+---
+
+## Evaluation
+- **Cross-Entropy Loss Curve**: Plots training and validation loss across epochs  
+- **Accuracy Curve**: Plots training and validation accuracy across epochs  
+
 ## 🧪 Example Usage
 
-## ⏳ Future Work
+## What I learned
+This was a really fun project that combined my love for math, coding, AI, and music! Here are some of the skills I learned and applied:
+- As this was my first major project in Python, I learned how to properly incorporate different principles I learned from my C++ class, such as encapsulation and inheritance.
+- I also utilized my knowledge of linear algebra to provide many different transformations of the 21x3 matrix for each sample.
+- During the summer, I took a deep neural network course through Coursera, and I was able to leverage many of the concepts I learned
+- Having over 12 years of experience playing music, I had to create an instrumental scheme that would make it easy to switch between notes.
+- Because this project involved audio and live input, this was very interactive and extremely fun to create!
+
+## Future Work
+Improvements:
+- Speed of camera startup
+- More data collected
+- More accurate model
+- Increased processing time of input to output
+Different features to include:
+- Different majors
+- Different sound outputs
+- Songs to play along
+- Turning it into a mobile app 
+
