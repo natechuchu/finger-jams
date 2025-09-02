@@ -48,9 +48,26 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
 ### Processing
 Data processing takes place with the `normalize_utils.py` script. See `edda.ipynb` for my full reasoning for each processing step.
 1) Raw data
-Lets take a look at one sample
-### Feature Engineering
 
+![raw data](images/raw_data.png)
+
+3) Normalizing the origin 
+
+![normalize position](images/norm_p.png)
+
+4) Normalizing the scale
+
+![normalize scale](images/norm_ps.png)
+
+5) Normalizing the alignment
+
+![normalize alignement](images/norm_psa.png)
+
+3) Normalizing the rotation
+
+![normalize rotation](images/norm_psar.png)
+
+### Feature Engineering
 
 ## Modeling
 
