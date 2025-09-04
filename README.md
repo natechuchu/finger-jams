@@ -1,4 +1,4 @@
-# Virtual Instrument using MediaPipe and NN-Classifier
+# Finger Jams - a Virtual Instrument using MediaPipe and NN-Classifier
 
 This project utilizes a neural network classifier to classify 7 hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
 
