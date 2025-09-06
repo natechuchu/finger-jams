@@ -1,22 +1,22 @@
-# Finger Jams - a Virtual Instrument using MediaPipe and NN-Classifier
+# Finger Jams: A Virtual Instrument using MediaPipe and NN-Classifier
 
-This project utilizes a neural network classifier to classify 7 hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 49 notes in the C major scale.
+This project utilizes a neural network classifier to classify 7 hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 42 notes in the C major scale.
 
 ---
 
 ## 📌 Table of Contents
 - [Overview](#-overview)
-- [Background](#background)
+- [Background](#-background)
 - [Features](#-features)
-- [Data Pipeline](#data-pipeline)
-- [Model Architecture](#model-architecture)
+- [Data Pipeline](#-data-pipeline)
+- [Model Architecture](#-model-architecture)
 - [Example Usage](#-example-usage)
-- [What I Learned](#what-i-learned)
-- [Future Work](#future-work)
+- [What I Learned](#-what-i-learned)
+- [Future Work](#-future-work)
 
 
 ---
-
+  
 ## 🧠 Overview
 Using MediaPipe, a prebuilt hand-recognizer, and OpenCV for camera input, I manually collected over 10,000 hand gesture samples using my HandData class.
 From there, I built a custom pipeline to preprocess the data, engineered additional features to distinguish similar gestures, and trained a neural network classifier. Using the left hand to control the octaves and the right hand to control the 7 notes in a C Major scale, I connected my preprocessing pipeline
@@ -26,9 +26,8 @@ MediaPipe hand landmarks:
 ![raw data](images/hand_landmarks.png)
 
 ---
-
 ## 🖼️ Background
-Ever since I started playing violin at 5 years old, I've always loved creating and practicing music. Whether it's practicing the Bruch Concerto in G minor for the thousandth time or jazzifying Star Wars music off the top of my head,
+Ever since I started playing violin at 6 years old, I've always loved creating and practicing music. Whether it's practicing the Bruch Concerto in G minor for the thousandth time or jazzifying Star Wars music off the top of my head,
 music is where we can explore how deep our creativity can go. I believe that everyone should have access to create music, but often it can be inconvenient and pricey to own an instrument. 
 So I decided to create a virtual instrument - an instrument that can be played anywhere, anytime, completely hassle-free! All it requires is a free set of hands and your imagination. 
 
@@ -45,7 +44,7 @@ So I decided to create a virtual instrument - an instrument that can be played a
 
 ---
 
-## Data Pipeline
+## 🔁 Data Pipeline
 ### Collection
 Data collection takes place in `data_collection.py`. This script utilized two classes: HandTracker and HandData
 - HandTracker
@@ -99,7 +98,7 @@ My model had an extremely hard time distinguishing between similar gestures. For
 
 ---
 
-## Model Architecture
+## 🏗️ Model Architecture  
 ###  Architecture
 - **Input Layer**: 65 features (from `X`)
 - **Hidden Layer 1**:  
@@ -132,7 +131,7 @@ My model had an extremely hard time distinguishing between similar gestures. For
 
 ---
 
-## What I learned
+## 🎯 What I learned
 This was a really fun project that combined my love for math, coding, AI, and music! Here are some of the skills I learned and applied:
 - As this was my first major project in Python, I learned how to properly incorporate different principles I learned from my C++ class, such as encapsulation and inheritance.
 - I also utilized my knowledge of linear algebra to provide many different transformations of the 21x3 matrix for each sample.
@@ -142,7 +141,7 @@ This was a really fun project that combined my love for math, coding, AI, and mu
 
 ---
 
-## Future Work
+## 🚀 Future Work
 Improvements:
 - Speed of camera startup
 - More data collected
