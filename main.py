@@ -158,7 +158,7 @@ def main():
                 prev_note = current_note 
         
         # Draw landmarks
-        #annotated_image = tracker.draw_hands(image, hand_data)
+        image = tracker.draw_hands(image, hand_data)
 
         # Draw predictions
         if results_dict:
