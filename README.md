@@ -1,6 +1,6 @@
 # Finger Jams: A Virtual Instrument using MediaPipe and NN-Classifier
 
-This project utilizes a neural network classifier to classify seven hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 42 notes in the C major scale.
+This project utilizes a neural network classifier to recognize seven hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 42 notes in the C major scale.
 
 ---
 
@@ -10,13 +10,16 @@ This project utilizes a neural network classifier to classify seven hand gesture
 - [Features](#features)
 - [Data Pipeline](#data-pipeline)
 - [Model Architecture](#model-architecture)
-- [Example Usage](#example-usage)
+- [How To Play](#how-to-play-finger-jams)
+- [Demo](#demo)
 - [What I Learned](#what-i-learned)
 - [Future Work](#future-work)
 
 
 ---
-  
+![demo](images/demo.gif)  
+---
+
 ## Overview
 Using MediaPipe, a prebuilt hand-recognizer, and OpenCV for camera input, I manually collected over 10,000 hand gesture samples using my HandData class.
 From there, I built a custom pipeline to preprocess the data, engineered additional features to distinguish similar gestures, and trained a neural network classifier. Using the left hand to control the octaves and the right hand to control the 7 notes in a C Major scale, I connected my preprocessing pipeline
@@ -127,15 +130,14 @@ My model had an extremely hard time distinguishing between similar gestures. For
 
 ---
 
-## Example Usage
-### How to play Finger Jams
+## How to play Finger Jams
 Creating music on Finger Jams is simple: the left hand controls the octaves, and the right hand controls the notes. The seventh position on the left hand will silence any note from playing. 
-
 ![positions](images/positions.png)
 
+---
+
 ### Demo
-Click the image below to watch the full demo:
-[![Watch the video](https://img.youtube.com/vi/_WTC5XYTJZM/maxresdefault.jpg)](https://www.youtube.com/watch?v=_WTC5XYTJZM)
+[Watch on Youtube](https://www.youtube.com/watch?v=_WTC5XYTJZM)
 
 ---
 
