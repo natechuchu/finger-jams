@@ -22,9 +22,6 @@ Using MediaPipe, a prebuilt hand-recognizer, and OpenCV for camera input, I manu
 From there, I built a custom pipeline to preprocess the data, engineered additional features to distinguish similar gestures, and trained a neural network classifier. Using the left hand to control the octaves and the right hand to control the 7 notes in a C Major scale, I connected my preprocessing pipeline
 to a live input and mapped the processed data to audio outputs. In the end, I created a novel design for next-generation music creation!
 
-MediaPipe hand landmarks:
-![raw data](images/hand_landmarks.png)
-
 ---
 ## Background
 Ever since I started playing violin at 6 years old, I've always loved creating and practicing music. Whether it's practicing the Bruch Concerto in G minor for the thousandth time or jazzifying Star Wars music off the top of my head,
@@ -60,6 +57,9 @@ Data collection takes place in `data_collection.py`. This script utilized two cl
      - Two hands cannot be captured
   4) Hit Backspace to delete the last captured coordinate
   5) Hit ESC to exit the program.
+  
+MediaPipe hand landmarks:
+![raw data](images/hand_landmarks.png)
 
 ---
 
