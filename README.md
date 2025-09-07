@@ -128,7 +128,10 @@ My model had an extremely hard time distinguishing between similar gestures. For
 ---
 
 ## Example Usage
+### How to play Finger Jams
+Creating music on Finger Jams is simple: the left hand controls the octaves, and the right hand controls the notes. The seventh position on the left hand will silence any note from playing. 
 
+![positions](images/positions.png)
 ---
 
 ## What I learned
@@ -143,14 +146,13 @@ This was a really fun project that combined my love for math, coding, AI, and mu
 
 ## Future Work
 Improvements:
-- Speed of camera startup
-- More data collected
-- More accurate model
+- Optimize the speed of camera startup
+- Collect more data
 - Increased processing time of input to output
 
 Different features to include:  
-- Different majors
-- Different sound outputs
-- Songs to play along
-- Turning it into a mobile app 
+- Add different majors
+- Incorporate different sound outputs
+- Have songs to play along 
+- Turn it into a mobile app 
 
