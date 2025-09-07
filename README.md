@@ -134,7 +134,7 @@ Creating music on Finger Jams is simple: the left hand controls the octaves, and
 ![positions](images/positions.png)
 
 ### Demo
-[![Watch the video](https://img.youtube.com/vi/_WTC5XYTJZM/maxresdefault.jpg)](https://www.youtube.com/watch?v=_WTC5XYTJZM)
+
 
 ---
 
