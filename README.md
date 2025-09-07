@@ -1,6 +1,6 @@
 # Finger Jams: A Virtual Instrument using MediaPipe and NN-Classifier
 
-This project utilizes a neural network classifier to classify 7 hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 42 notes in the C major scale.
+This project utilizes a neural network classifier to classify seven hand gestures from live MediaPipe and OpenCV inputs. Each combination of hand gestures and handness is mapped to one of 42 notes in the C major scale.
 
 ---
 
@@ -132,6 +132,10 @@ My model had an extremely hard time distinguishing between similar gestures. For
 Creating music on Finger Jams is simple: the left hand controls the octaves, and the right hand controls the notes. The seventh position on the left hand will silence any note from playing. 
 
 ![positions](images/positions.png)
+
+### Demo
+[![Watch the video](https://img.youtube.com/vi/_WTC5XYTJZM/maxresdefault.jpg)](https://www.youtube.com/watch?v=_WTC5XYTJZM)
+
 ---
 
 ## What I learned
