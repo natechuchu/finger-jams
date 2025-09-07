@@ -100,7 +100,7 @@ My model had an extremely hard time distinguishing between similar gestures. For
 
 ## Model Architecture  
 ###  Architecture
-- **Input Layer**: 65 features (from `X`)
+- **Input Layer**: 65 features
 - **Hidden Layer 1**:  
   - Dense (64 units) with **ReLU activation**  
   - Dropout (30%) to reduce overfitting  
@@ -111,12 +111,12 @@ My model had an extremely hard time distinguishing between similar gestures. For
   - Dense (8 units) with **Softmax activation** for probability distribution across 8 classes  
 
 ### Compilation
-- **Optimizer**: Adam (adaptive learning rate)  
-- **Loss Function**: Sparse Categorical Crossentropy (for integer-encoded labels)  
+- **Optimizer**: Adam
+- **Loss Function**: Sparse Categorical Crossentropy 
 - **Metrics**: Accuracy  
 
 ### Training
-- **Train/Test Split**: 80/20 using `train_test_split` (random state = 42 for reproducibility)  
+- **Train/Test Split**: 80/20 using train_test_split
 - **Batch Size**: 40  
 - **Epochs**: Up to 100  
 - **Early Stopping**: Stops training if validation loss doesn’t improve for 5 epochs 
